@@ -1,3 +1,15 @@
+function formatDate(timestamp) {
+    let date = newDate(timestamp);
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
+    let day = date.getDay();
+    
+
+    return "Friday 5:00";
+}
+
+
 function displayTemperature(response) {
     let temperatureElement = document.querySelector("#temperature");
     let cityElement = document.querySelector("#city");
