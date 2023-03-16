@@ -29,9 +29,17 @@ function formatDate(timestamp) {
         humidityElement.innerHTML = response.data.main.humidity;
         windElement.innerHTML = Math.round(response.data.wind.speed);
         dateElement.innerHTML = formatDate(response.data.dt * 1000);
-    }
-
-    let apiKey = "d25df42b10f9cecb0836d249c9158e2b";
-    let city = "owerri";
+}
+function search(city) {
+        let apiKey = "d25df42b10f9cecb0836d249c9158e2b";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
  axios.get(apiUrl).then(displayTemperature);
+    }
+
+function handlesubmit(event) {
+    event.preventDefault();
+    let cityinputElement = document.querySelector("#city-input");
+    }
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handlesubmit);
