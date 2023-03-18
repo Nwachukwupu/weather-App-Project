@@ -31,7 +31,7 @@ function formatDate(timestamp) {
         windElement.innerHTML = Math.round(response.data.wind.speed);
         dateElement.innerHTML = formatDate(response.data.dt * 1000);
         iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`); 
-        iconElement.setAttribute("alt", response.dataaaaaa.weather[0].description);
+        iconElement.setAttribute("alt", response.data.weather[0].description);
     }
 function search(city) {
         let apiKey = "d25df42b10f9cecb0836d249c9158e2b";
@@ -44,7 +44,17 @@ function handlesubmit(event) {
     event.preventDefault();
     let cityInputElement = document.querySelector("#city-input");
     search(cityInputElement.value);
-    }
+}
+    
+function displayFahrenheitTemperature(event) {
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperature");
+    let fahrenheitTemperature = (temperatureElement.innerHTML * 9) / 5 * 32;
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handlesubmit);
+
+let fahrenheitLink = document.querySelector("#fahreheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
