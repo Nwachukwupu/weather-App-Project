@@ -55,12 +55,10 @@ function displayForecast(){
   
     forecastHTML = forecastHTML + `</div>`;
     forecastElement.innerHTML = forecastHTML;
-    console.log(forecastHTML);
   }
 
 
   function getForecast(coordinates) {
-    console.log(coordinates)
     let apiKey = "d25df42b10f9cecb0836d249c9158e2b";
     let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
