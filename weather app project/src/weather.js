@@ -9,7 +9,7 @@ function formatDate(timestamp) {
         minutes = `0${minutes}`;
     }
     let seconds = date.getSeconds();
-    let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "saturday", "Sunday"]
+    let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "saturday", "Sunday"];
     let day = days [date.getDay()];
     return `${day} ${hours}:${minutes}`;
 }
@@ -21,8 +21,7 @@ let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
 return days [day];
 }
 
-function displayForecast(){
-   let forecastElement= document.querySelector = ("#forecast");
+
 
    function displayForecast(response) {
     let forecast = response.data.daily;
