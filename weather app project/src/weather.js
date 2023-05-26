@@ -72,11 +72,14 @@ return days [day];
         let dateElement = document.querySelector("#date");
         let iconElement = document.querySelector("#icon");
 
+        celsiusTemperature = response.data.main.temp;
+
+
         temperatureElement.innerHTML = Math.round(response.data.main.temp);
         cityElement.innerHTML = response.data.name;
         descriptionElement.innerHTML = response.data.weather[0].description;
         humidityElement.innerHTML = response.data.main.humidity;
-        windElement.innerHTML = Math.round(response.data.wind.speed);
+        windElement.innerHTML = Math.round(response.data.wind.speed* 3.6);
         dateElement.innerHTML = formatDate(response.data.dt * 1000);
         iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`); 
         iconElement.setAttribute("alt", response.data.weather[0].description);
@@ -104,13 +107,13 @@ function displayFahrenheitTemperature(event) {
 }
 
 let form = document.querySelector("#search-form");
-form.addEventListener("submit", handlesubmit);
+form.addEventListener("submit", handleSubmit);
 
 let fahrenheitLink = document.querySelector("#fahreheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-Link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
+celsiusLink.addEventListener("click", displayTemperature);
 
 search("New York");
 displayForecast();
