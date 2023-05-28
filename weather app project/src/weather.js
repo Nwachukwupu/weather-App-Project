@@ -1,11 +1,11 @@
 function formatDate(timestamp) {
     let date = new Date(timestamp);
     let hours = date.getHours();
-    if (hours < 0) {
+    if (hours < 10) {
         hours = `0${hours}`;
     }
     let minutes = date.getMinutes();
-    if (minutes < 0) {
+    if (minutes < 10) {
         minutes = `0${minutes}`;
     }
     let seconds = date.getSeconds();
@@ -27,8 +27,7 @@ return days [day];
     let forecast = response.data.daily;
     let forecastElement = document.querySelector("#forecast");
   
-    let days = ["Thu", "Fri", "Sat", "Sun"];
-  
+    let days = `forecast.map((forecastDay) => formatDay(forecastDay.dt));`  
     let forecastHTML = `<div class="row">`;
     forecast.forEach(function (forecastDay, index) {
       if (index < 6) {
@@ -116,4 +115,3 @@ let celsiusLink = document.querySelector("#celsius-Link");
 celsiusLink.addEventListener("click", displayTemperature);
 
 search("New York");
-displayForecast();
